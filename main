@@ -1,0 +1,54 @@
+//Emily S.	- - -	100 Doors
+
+import java.util.LinkedList;
+
+public class Doors {
+	//create integer to set the max number of doors
+	static int MAX = 100;
+	
+	public static void main(String[] args) {
+		//variables that determine the state of each door
+		//		*could have used boolean as well (true = open, false = closed)
+		int open = 1;
+		int closed = 0;
+		
+		//create array of 100 doors
+		int[] doors = new int[MAX];
+		//set all doors to closed
+		for(int i = 0; i < doors.length; i++) 
+			doors[i] = closed;
+		
+		//using the iteration variable, call the traverse function
+		for(int iteration = 1; iteration <= MAX; iteration++)
+			traverse(doors, iteration);
+		
+		//create linked list to record open doors
+		LinkedList<Integer> openDoors = new LinkedList<>();	
+		
+		//display the door statuses
+		System.out.println("The doors are now as follows:");
+		for(int i = 0; i < MAX; i++) {
+			if(doors[i] == 0)
+				System.out.print("closed\t");
+			else {
+				System.out.print("open\t");
+				//add door number to linked list
+				openDoors.add(i + 1);
+			}//end else			
+		}//end for
+		
+		//display the open doors
+		System.out.print("\n\nThe open doors are numbers " + openDoors);
+		
+	}//end main
+	
+	//method that traverses through the doors, opening and closing when required
+	static void traverse(int[] doors, int iteration) {
+		for(int i = iteration - 1; i < MAX; i += iteration) {
+			if(doors[i] == 0)
+				doors[i] = 1;
+			else
+				doors[i] = 0;			
+		}//end for
+	}//end traverse
+}//end class
