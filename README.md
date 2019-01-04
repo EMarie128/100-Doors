@@ -14,3 +14,5 @@ The third time, visit every 3rd door   (door #3, #6, #9, ...), etc,   until you 
 
 Task
 Answer the question:   what state are the doors in after the last pass?   Which are open, which are closed?
+
+*Completed on 1/4/19
